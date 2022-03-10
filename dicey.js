@@ -45,14 +45,16 @@ $(document).ready(() => {
             this.div = $(`<div></div>`);
             this.div.attr(`id`, this.id);
             this.div.attr(`class`, `die`);
-            this.div.append(this.dieFace());
+            this.img = this.dieFace()
+            this.div.append(this.img);
             $(`#diceContainerDiv`).append(this.div);
 
-            this.div.click(() => {
+            this.div.on("click", () => {
                 this.roll();
             });
 
-            this.div.dblclick(() => {
+            this.div.on("dblclick", function(){
+                console.log(this.div)
                 $(`#${this.id}`).remove();
                 let index = diceOnScreen.findIndex((item) => item.id === this.id);
                 diceOnScreen.splice(index, 1);
@@ -67,31 +69,36 @@ $(document).ready(() => {
 
         // dice images
         dieFace() {
+            let img;
+
             if (this.value === 1) {
-                return $(
+                img = $(
                     `<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Dice-1.svg/557px-Dice-1.svg.png" />`
                 );
             } else if (this.value === 2) {
-                return $(
+                img = $(
                     `<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Dice-2.svg/2048px-Dice-2.svg.png" />`
                 );
             } else if (this.value === 3) {
-                return $(
+                img = $(
                     `<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Dice-3.svg/1200px-Dice-3.svg.png" />`
                 );
             } else if (this.value === 4) {
-                return $(
+                img = $(
                     `<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Dice-4.svg/557px-Dice-4.svg.png" />`
                 );
             } else if (this.value === 5) {
-                return $(
+                img = $(
                     `<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/Dice-5.svg/1200px-Dice-5.svg.png" />`
                 );
             } else if (this.value === 6) {
-                return $(
+                img = $(
                     `<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Dice-6.svg/1200px-Dice-6.svg.png" />`
                 );
             }
+
+
+            return img
         }
     }
 });
