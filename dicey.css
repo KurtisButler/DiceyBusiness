@@ -1,0 +1,35 @@
+
+.die {
+    width: 3em;
+    height: 3em;
+    padding: 2em;
+    margin: 3em;
+    display: inline-block;
+}
+
+.die:hover {
+    cursor: pointer;
+}
+
+img {
+    width: 100px;
+    height: 100px;
+}
+
+#generateDiceButton {
+    background-color: magenta;
+}
+
+#rollDiceButton {
+    background-color: magenta;
+}
+
+#getSumButton {
+    background-color: magenta;
+
+}
+
+#startOverButton {
+    background-color: magenta;
+
+}
